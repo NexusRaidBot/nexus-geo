@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+<div class="center">
+  <p id="nexus"></p>
+</div>
+<script type = "text/javascript">
+	  
+		 var x = document.getElementById("nexus");
+		
+         function showLocation(position) {
+            x.innerHTML = "!set location " + position.coords.latitude + " " + position.coords.longitude;
+         }
+
+         function errorHandler(err) {
+            if(err.code == 1) {
+               x.innerHTML = "Error: Access is denied!";
+            } else if( err.code == 2) {
+               x.innerHTML = "Error: Position is unavailable!";
+            }
+         }
+			
+         window.onload = function getLocation() {
+
+            if(navigator.geolocation) {
+               var options = {timeout:60000};
+               navigator.geolocation.getCurrentPosition(showLocation, errorHandler, options);
+            } else {
+               x.innerHTML = "Sorry, browser does not support geolocation!";
+            }
+         }
+			
+</script>
+</body>
+</html>
