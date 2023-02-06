@@ -28,7 +28,7 @@
 <script type = "text/javascript">
 	  
          function showLocation(position) {
-			document.getElementById('field1').setAttribute('value', "/set location " + position.coords.latitude + " " + position.coords.longitude);
+			document.getElementById('field1').setAttribute('value', "/set location latitude:" + position.coords.latitude + " longitude:" + position.coords.longitude);
          }
 
          function errorHandler(err) {
